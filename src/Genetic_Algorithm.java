@@ -33,7 +33,7 @@ public class Genetic_Algorithm {
             //sort population
             population = new ArrayList<>(sortPop(population));
             //output generation best;
-            System.out.println(" Generation " + i+1 + " " + population.get(0).getFitness());
+            System.out.println(" Generation " + (i+1) + " " + population.get(0).getFitness()+ " " + population.get(0).getStrategy());
             // Store generation best
             genBest.add(population.get(0).getFitness());
             if(i==No_Gen-1)break;
@@ -56,7 +56,7 @@ public class Genetic_Algorithm {
         ArrayList<Chromosome> list = new ArrayList<>(popu);
         list.sort((o1, o2) -> {
             if (o1.getFitness() == o2.getFitness()) return 0;
-            else if (o1.getFitness() > o2.getFitness()) return 1;
+            else if (o1.getFitness() < o2.getFitness()) return 1;
             return -1;
         });
         return list;
