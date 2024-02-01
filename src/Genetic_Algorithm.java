@@ -10,7 +10,7 @@ public class Genetic_Algorithm {
     private final int No_Gen;
     private final float mutationRate;
     private ArrayList<Chromosome> population = new ArrayList<>();
-    private final ArrayList<Double> genBest = new ArrayList<>();
+//    private final ArrayList<Double> genBest = new ArrayList<>();
     private ArrayList<Chromosome> newPopulation;
     private final Random rand = new Random();
 
@@ -35,7 +35,7 @@ public class Genetic_Algorithm {
             //output generation best;
             System.out.println(" Generation " + (i+1) + " " + population.get(0).getFitness()+ " " + population.get(0).getStrategy());
             // Store generation best
-            genBest.add(population.get(0).getFitness());
+//            genBest.add(population.get(0).getFitness());
             if(i==No_Gen-1)break;
             //allow elitism
             //implement elitism
@@ -49,7 +49,7 @@ public class Genetic_Algorithm {
                 population.get(ch).setStrategy(newPopulation.get(ch).getStrategy());
             }
         }
-        LineChart.DrawChart(new ArrayList<>(genBest));
+        population.forEach(x->System.out.println(x.getStrategy()+" ---- "+x.getFitness()));
     }
     //Sort chromosome according to  fitness
     private ArrayList<Chromosome> sortPop(ArrayList<Chromosome> popu) {
